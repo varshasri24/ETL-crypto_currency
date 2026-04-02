@@ -190,12 +190,6 @@ docker-compose up --build
 
 ---
 
-## 👩‍💻 Author
-
-**Varsha Sri M**
-
----
-
 ## 📜 License
 
 This project is licensed under the MIT License.
