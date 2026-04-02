@@ -1,26 +1,32 @@
-🚀 MarketFlow — Real-Time Crypto Analytics Platform
+# 🚀 MarketFlow — Real-Time Crypto Analytics Platform
 
-A fully containerized end-to-end data engineering project that streams, processes, stores, and visualizes real-time cryptocurrency data using modern data stack tools.
+A fully containerized **end-to-end data engineering project** that streams, processes, stores, and visualizes real-time cryptocurrency data using modern data stack tools.
 
-📌 Project Overview
+---
 
-MarketFlow is a real-time data pipeline that:
+## 📌 Project Overview
 
-Streams live crypto price data
-Processes it using distributed computing
-Stores it in a data lake
-Runs analytics & anomaly detection
-Displays insights through an interactive dashboard
+MarketFlow is a **real-time data pipeline** that:
 
-This project demonstrates production-level architecture using tools like Kafka, Spark, Airflow, and Docker.
+- Streams live crypto price data  
+- Processes it using distributed computing  
+- Stores it in a data lake  
+- Runs analytics & anomaly detection  
+- Displays insights through an interactive dashboard  
 
-🏗️ Architecture
+This project demonstrates **production-level architecture** using tools like Kafka, Spark, Airflow, and Docker.
+
+---
+
+## 🏗️ Architecture
+
+```
         ┌────────────┐
         │  API Data  │
         └─────┬──────┘
               ↓
         ┌────────────┐
-        │   Kafka    │  ← Streaming Layer
+        │   Kafka    │
         └─────┬──────┘
               ↓
    ┌─────────────────────┐
@@ -29,7 +35,7 @@ This project demonstrates production-level architecture using tools like Kafka, 
    └─────────┬───────────┘
              ↓
         ┌────────────┐
-        │   MinIO    │  ← Data Lake (S3)
+        │   MinIO    │
         └─────┬──────┘
               ↓
    ┌─────────────────────┐
@@ -38,7 +44,7 @@ This project demonstrates production-level architecture using tools like Kafka, 
    └─────────┬───────────┘
              ↓
         ┌────────────┐
-        │ Postgres   │  ← Data Warehouse
+        │ Postgres   │
         └─────┬──────┘
               ↓
    ┌─────────────────────┐
@@ -48,48 +54,72 @@ This project demonstrates production-level architecture using tools like Kafka, 
    ┌─────────────────────┐
    │ React Dashboard UI  │
    └─────────────────────┘
-🧰 Tech Stack
-⚙️ Backend & Data Engineering
-Apache Kafka — Streaming
-Apache Spark — Processing (Streaming + Batch)
-Apache Airflow — Orchestration
-PostgreSQL — Data Warehouse
-MinIO — Data Lake (S3 compatible)
-🌐 Frontend
-React (Vite)
-Tailwind CSS
-Recharts
-🐳 DevOps
-Docker & Docker Compose
-Nginx (Reverse Proxy)
-📂 Project Structure
+```
+
+---
+
+## 🧰 Tech Stack
+
+### ⚙️ Backend & Data Engineering
+- Apache Kafka — Streaming  
+- Apache Spark — Processing (Streaming + Batch)  
+- Apache Airflow — Orchestration  
+- PostgreSQL — Data Warehouse  
+- MinIO — Data Lake (S3 compatible)  
+
+### 🌐 Frontend
+- React (Vite)  
+- Tailwind CSS  
+- Recharts  
+
+### 🐳 DevOps
+- Docker & Docker Compose  
+- Nginx (Reverse Proxy)  
+
+---
+
+## 📂 Project Structure
+
+```
 ├── dags/                  # Airflow DAGs
-├── spark-jobs/            # Spark Streaming & Analytics Jobs
+├── spark-jobs/            # Spark Jobs
 ├── dashboard/
 │   ├── api/               # Backend API
 │   └── ui/                # React Frontend
 ├── postgres/
 │   └── init.sql           # DB initialization
-├── docker-compose.yml     # Multi-service orchestration
-⚡ Features
+├── docker-compose.yml     # Services
+```
 
-✔ Real-time crypto data streaming using Kafka
-✔ Distributed data processing using Spark
-✔ Data lake storage using MinIO (S3)
-✔ Batch analytics with Spark
-✔ Workflow orchestration with Airflow
-✔ REST API for serving processed data
-✔ Interactive dashboard with charts
-✔ Fully Dockerized setup (one command deployment)
+---
 
-🚀 Getting Started
-1️⃣ Clone the Repository
-git clone https://github.com/your-username/marketflow.git
-cd marketflow
+## ⚡ Features
 
-2️⃣ Create .env File
-Create a .env file in root:
+- ✅ Real-time crypto data streaming using Kafka  
+- ✅ Distributed data processing using Spark  
+- ✅ Data lake storage using MinIO (S3)  
+- ✅ Batch analytics with Spark  
+- ✅ Workflow orchestration with Airflow  
+- ✅ REST API for serving data  
+- ✅ Interactive dashboard  
+- ✅ Fully Dockerized setup  
 
+---
+
+## 🚀 Getting Started
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/varshasri24/ETL-crypto_currency.git
+cd ETL-crypto_currency
+```
+
+---
+
+### 2️⃣ Create `.env` File
+
+```env
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres
 POSTGRES_DB=crypto
@@ -107,43 +137,65 @@ MINIO_ROOT_PASSWORD=minioadmin
 
 KAFKA_BROKER=kafka:9092
 KAFKA_TOPIC=crypto-prices
+```
 
-3️⃣ Run the Project
+---
+
+### 3️⃣ Run the Project
+
+```bash
 docker-compose up --build
+```
 
-4️⃣ Access Services
-Service	URL
-Airflow UI	http://localhost:8080
+---
 
-Dashboard UI	http://localhost:3000
+### 4️⃣ Access Services
 
-MinIO Console	http://localhost:9001
+| Service        | URL                  |
+|---------------|----------------------|
+| Airflow UI    | http://localhost:8080 |
+| Dashboard UI  | http://localhost:3000 |
+| MinIO Console | http://localhost:9001 |
+| API           | http://localhost:8000 |
 
-API	http://localhost:8000
+---
 
-🔄 Data Flow
-1. Crypto data fetched via API
-2. Produced to Kafka topic
-3. Spark Streaming consumes Kafka
-4. Data stored in MinIO (Parquet format)
-5. Spark Analytics processes data
-6. Results stored in PostgreSQL
-7. Dashboard fetches via API
+## 🔄 Data Flow
 
-📊 Dashboard
-The frontend provides:
-📈 Real-time price trends
-📉 Historical analysis
-🚨 Anomaly detection alerts
+1. Crypto data fetched via API  
+2. Sent to Kafka  
+3. Spark Streaming consumes Kafka  
+4. Stored in MinIO  
+5. Spark Analytics processes data  
+6. Stored in PostgreSQL  
+7. Dashboard displays insights  
 
+---
 
-🧪 Future Improvements
--Add authentication (JWT)
--Deploy on AWS/GCP
--Add CI/CD pipeline
--Improve anomaly detection with ML models
--Add more financial indicators
+## 📊 Dashboard
 
-📜 License
+- 📈 Real-time trends  
+- 📉 Historical analysis  
+- 🚨 Anomaly detection  
+
+---
+
+## 🧪 Future Improvements
+
+- Add authentication (JWT)  
+- Deploy on AWS/GCP  
+- Add CI/CD pipeline  
+- Improve anomaly detection with ML  
+- Add more financial indicators  
+
+---
+
+## 👩‍💻 Author
+
+**Varsha Sri M**
+
+---
+
+## 📜 License
 
 This project is licensed under the MIT License.
